@@ -1,0 +1,26 @@
+{
+  "name": "iwfa-tournament-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js --ignore client",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgoodsss/IWFA-tournament-tracker.git"
+  },
+  "author": "Sarah Goodell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgoodsss/IWFA-tournament-tracker/issues"
+  },
+  "homepage": "https://github.com/sgoodsss/IWFA-tournament-tracker#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
