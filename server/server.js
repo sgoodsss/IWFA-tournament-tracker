@@ -4,6 +4,10 @@ const path = require('path');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
+
+// MVC
+// Views (API, HTML)
+
 const app = express();
   
   app.use(express.urlencoded({ extended: true }));
