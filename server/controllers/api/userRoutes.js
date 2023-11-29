@@ -1,46 +1,42 @@
 const router = require('express').Router();
-const Student = require('../../models/Student');
+const { User, Form } = require ("../../models")
 
-//CREATE - Route to create a new student
+//CREATE - Route to create a new User
 router.post('/', async (req, res) => {
   try {
-    const newStudent = await Student.create({
-      ...req.body,
-      teacher_id: req.session.user_id,
-    });
-    res.status(200).json(newStudent);
+    const newUser = await User.create(req.body);
+    res.status(200).json(newUser);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-//POST student login route - logs in through collecting user form data 
+//POST user login route - logs in through collecting user form data 
 router.post('/login', async (req, res) => {
   try {
-    const studentData = await Student.findOne({ where: { userName: req.body.email } });
-    console.log('login', studentData)
-    if (!studentData) {
+    const userData = await User.findOne({ email: req.body.email });
+    if (!userData) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
-    const studentPassword = await studentData.checkPassword(req.body.password);
+    const userPassword = await userData.isCorrectPassword(req.body.password);
 
-    if (!studentPassword) {
+    if (!userPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
+    res.json({ user: userData, message: 'You are now logged in!'})
+    // req.session.save(() => {
+    //   req.session.user_id = studentData.id;
+    //   req.session.logged_in = true;
 
-    req.session.save(() => {
-      req.session.user_id = studentData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: studentData, message: 'You are now logged in!' });
-    });
+    //   res.json({ user: studentData, message: 'You are now logged in!' });
+    // });
 
   } catch (err) {
     res.status(400).json(err);
@@ -48,27 +44,30 @@ router.post('/login', async (req, res) => {
 });
 
 
-//Route to get all students by student id
+//Route to get all Users
 router.get('/', (req, res) => {
-  Student.findAll({
-    where: {
-      id: req.session.user_id,
-    },
-  }).then((studentData) => {
-    res.json(studentData);
+  User.find({
+    // where: {
+    //   id: req.session.user_id,
+    // },
+  }).populate("formEntries").then((userData) => {
+    res.json(userData);
   });
 
 });
 
-// Route to get all students by teacher id
-router.get('/teach', (req, res) => {
-  Student.findAll({
-    where: {
-      teacher_id: req.session.user_id,
-    },
-  }).then((studentData) => {
-    res.json(studentData);
-  });
+// Route to 
+router.put('/start', async (req, res) => {
+  const userEmail = "corey@email.com"
+  try {
+   const formData = await Form.create(req.body)
+   const updatedUser = await User.findOneAndUpdate({email: userEmail}, {$push: { formEntries: formData }}, {new: true, runValidators: true})
+   console.log(updatedUser)
+  //  Add an if statement if you don't find a user's email
+  // console.log(formData)
+  } catch (error) {
+    res.json(error)
+  }
 
 });
 

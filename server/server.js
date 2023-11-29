@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+const routes = require("./controllers")
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
@@ -21,6 +21,8 @@ const app = express();
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   } 
+  
+  app.use(routes)
 
   db.once('open', () => {
     app.listen(PORT, () => {

@@ -99,12 +99,12 @@ const formSchema = new Schema({
 
 // Get total count of form entries
 
-formSchema
-  .virtual('reactionCount')
-  // Getter
-  .get(function () {
-    return this.reactions.length;
-  });
+// formSchema
+//   .virtual('reactionCount')
+//   // Getter
+//   .get(function () {
+//     return this.reactions.length;
+//   });
 
 // Initialize our Form model
 const Form = model('Form', formSchema);

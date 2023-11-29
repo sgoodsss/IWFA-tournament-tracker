@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { User, Admin, Form } = require('../models');
-const withAuth = require('../utils');
+import User from "../models/User"
+import Admin from "../models/Admin"
+import Form from "../models/Form"
+import withAuth from "../utils"
 
 // Render the homepage
 router.get('/', async (req, res) => {
@@ -21,8 +23,8 @@ router.get('/signup', async (req, res) => {
 });
 
 
-// Use withAuth middleware to prevent access to route - TEACHER VIEW
-router.get('/profile', withAuth, async (req, res) => {
+// Use withAuth middleware to prevent access to route - ADMIN VIEW
+router.get('/admin', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     console.log(req.session)
