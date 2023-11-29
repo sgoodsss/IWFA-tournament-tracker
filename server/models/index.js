@@ -1,5 +1,4 @@
 const Admin = require('./Admin');
-const Event = require('./Event');
 const Form = require('./Form');
 const User = require('./User');
 

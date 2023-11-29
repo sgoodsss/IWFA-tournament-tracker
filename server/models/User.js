@@ -20,19 +20,9 @@ const userSchema = new Schema({
         minlength: 5,
     },
     // Connect User's Form Submissions to their account
-    formEntries: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Form'
-        }
-    ],
-    // Link specific tournament/event to User
-    event: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Event'
-        }
-    ]
+    // I want it to save each entry separately, not overwrite it
+    // IS THIS RIGHT
+    formEntries: [formSchema],
 },
     {
         toJSON: {
