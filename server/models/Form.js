@@ -109,4 +109,4 @@ formSchema
 // Initialize our Form model
 const Form = model('Form', formSchema);
 
-module.exports = Thought;
+module.exports = Form;

@@ -19,10 +19,8 @@ const adminSchema = new Schema({
         required: true,
         minlength: 5,
     },
-    // Connect User's Form Submissions to their account
-    // I want it to save each entry separately, not overwrite it
-    // IS THIS RIGHT
-    formEntries: [formSchema],
+    // Connect all Users and Form Submissions to their account
+    users: [userSchema],
 },
     {
         toJSON: {
@@ -33,7 +31,7 @@ const adminSchema = new Schema({
 );
 
 // set up pre-save middleware to create password
-profileSchema.pre('save', async function (next) {
+adminSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
@@ -43,18 +41,18 @@ profileSchema.pre('save', async function (next) {
 });
 
 // compare the incoming password with the hashed password
-profileSchema.methods.isCorrectPassword = async function (password) {
+adminSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-userSchema
-    .virtual('formCount')
+adminSchema
+    .virtual('userCount')
     // Getter
     .get(function () {
-        return this.formEntries.length;
+        return this.users.length;
     });
 
 // Initialize our User model
-const User = model('User', userSchema);
+const Admin = model('Admin', adminSchema);
 
-module.exports = User;
+module.exports = Admin;
