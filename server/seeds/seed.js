@@ -3,12 +3,18 @@ const { Admin, Form, User } = require('../models');
 const cleanDB = require('./cleanDB');
 
 const userData = require('./userData.json');
+const formData = require('./formData.json');
+const adminData = require('./adminData.json');
 
 db.once('open', async () => {
-  await cleanDB('Tech', 'teches');
+  await cleanDB('User', 'users');
+  await cleanDB('Form', 'forms');
+  await cleanDB('Admin', 'admin');
 
-  await Tech.insertMany(techData);
+  await User.insertMany(userData);
+  await Form.insertMany(formData);
+  await Admin.insertMany(adminData);
 
-  console.log('Technologies seeded!');
+  console.log('Database seeded!');
   process.exit(0);
 });
