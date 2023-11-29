@@ -20,9 +20,12 @@ const userSchema = new Schema({
         minlength: 5,
     },
     // Connect User's Form Submissions to their account
-    // I want it to save each entry separately, not overwrite it
-    // IS THIS RIGHT
-    formEntries: [formSchema],
+    formEntries: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Form'
+        }
+    ],
 },
     {
         toJSON: {

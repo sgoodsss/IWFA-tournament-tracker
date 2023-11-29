@@ -20,7 +20,12 @@ const adminSchema = new Schema({
         minlength: 5,
     },
     // Connect all Users and Form Submissions to their account
-    users: [userSchema],
+    users: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
 },
     {
         toJSON: {
