@@ -1,12 +1,9 @@
 const express = require('express');
 const path = require('path');
-const routes = require("./controllers")
+const routes = require("./routes")
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
-
-// MVC
-// Views (API, HTML)
 
 const app = express();
   
