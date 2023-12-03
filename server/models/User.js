@@ -31,12 +31,11 @@ const userSchema = new Schema({
     {
         toJSON: {
             virtuals: true
-        },
-        id: false
+        }
     }
 );
 
-// set up pre-save middleware to create password
+// hash user password
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
@@ -46,17 +45,15 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-// compare the incoming password with the hashed password
+// validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-userSchema
-    .virtual('formCount')
-    // Getter
-    .get(function () {
-        return this.formEntries.length;
-    });
+// when we query a user, we'll also get another field called `formCount` with the number of saved forms we have
+userSchema.virtual('formCount').get(function () {
+    return this.formEntries.length;
+  });
 
 // Initialize our User model
 const User = model('User', userSchema);

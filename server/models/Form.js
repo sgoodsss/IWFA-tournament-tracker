@@ -15,7 +15,7 @@ const formSchema = new Schema({
         default: Date.now,
         get: createdAtVal => moment(createdAtVal).format('MMMM Do YYYY, h:mm a'),
     },
-// Max is the max point value of each fish multiplied by 5 (daily limit)
+    // Max is the max point value of each fish multiplied by 5 (daily limit)
     spottedSeaTrout: {
         type: Number,
         default: 0,
@@ -86,7 +86,7 @@ const formSchema = new Schema({
         type: Number,
         default: 0,
         required: true
-    }
+    },
 },
     {
         toJSON: {
@@ -95,16 +95,9 @@ const formSchema = new Schema({
         },
         id: false
     }
+
+
 );
-
-// Get total count of form entries
-
-// formSchema
-//   .virtual('reactionCount')
-//   // Getter
-//   .get(function () {
-//     return this.reactions.length;
-//   });
 
 // Initialize our Form model
 const Form = model('Form', formSchema);

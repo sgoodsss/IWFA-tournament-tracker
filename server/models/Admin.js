@@ -30,12 +30,11 @@ const adminSchema = new Schema({
     {
         toJSON: {
             virtuals: true
-        },
-        id: false
+        }
     }
 );
 
-// set up pre-save middleware to create password
+// hash admin password
 adminSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
@@ -45,7 +44,7 @@ adminSchema.pre('save', async function (next) {
     next();
 });
 
-// compare the incoming password with the hashed password
+// validate password for logging in
 adminSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
