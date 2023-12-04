@@ -15,7 +15,7 @@ router.route('/').post(createAdmin).put(authMiddleware);
 
 router.route('/adminlogin').post(loginAdmin);
 
-router.route('/adminprofile').get(authMiddleware, getSingleAdmin);
+router.route('/admin').get(authMiddleware, getSingleAdmin);
 
 // FIX THESE ROUTES
 // Old route- GET all Users
