@@ -1,119 +1,46 @@
+// import Admin model
+const { Admin } = require('../../models');
 const router = require('express').Router();
-const { Teacher } = require('../../models');
-const Student = require('../../models/Student');
+const {
+  createAdmin,
+  getSingleAdmin,
+  loginAdmin,
+} = require('../../controllers/admin-controller');
 
+// import middleware
+const { authMiddleware } = require('../../utils/auth');
 
-//CREATE - Route to sign up teacher acct from the sign-up page
-router.post('/', async (req, res) => {
-    // create a new teacher
-    try {
-      const teacherData = await Teacher.create(req.body);
+// put authMiddleware anywhere we need to send a token for verification of admin user
+router.route('/').post(createAdmin).put(authMiddleware);
 
-      req.session.save(() => {
-        req.session.user_id = teacherData.id;
-        req.session.logged_in = true;
+router.route('/adminlogin').post(loginAdmin);
 
-        res.status(200).json(teacherData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
+router.route('/adminprofile').get(authMiddleware, getSingleAdmin);
+
+// FIX THESE ROUTES
+// Old route- GET all Users
+router.get('/', (req, res) => {
+  User.find({}).populate("formEntries").then((userData) => {
+    res.json(userData);
   });
+});
 
-//POST - login route v3.0 logs in teacher acct. from the log-in page
-router.post('/login', async (req, res) => {
+// Old route- Log in Admin HARDCODED to corey's email
+router.put('/start', async (req, res) => {
+  const userEmail = "corey@email.com"
   try {
-    const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
- console.log('login', teacherData)
-    if (!teacherData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    const teacherPassword = await teacherData.checkPassword(req.body.password);
-
-    if (!teacherPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = teacherData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: teacherData, message: 'You are now logged in!' });
-    });
-
-  } catch (err) {
-    res.status(400).json(err);
+   const formData = await Form.create(req.body)
+   const updatedUser = await User.findOneAndUpdate({email: userEmail}, {$push: { formEntries: formData }}, {new: true, runValidators: true})
+   console.log(updatedUser)
+  //  Add an if statement if you don't find a user's email
+  if (!userEmail) {
+    return res.status(400).json({ message: 'Wrong email!' });
   }
+  // console.log(formData)
+  } catch (error) {
+    res.json(error)
+  }
+
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-  
-
-  // Route to get all teachers (mostly used for dev. purposes)
-  router.get('/', (req, res) => {
-      // Get all teachers from the teacher table
-      Teacher.findAll().then((teacherData) => {
-        res.json(teacherData);
-      });
-   });
-  
-  // Route to get teachers by id 
-  router.get('/:id', async (req, res) => {
-    try {
-      const myTeacher = await Teacher.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
-  
-      if (!myTeacher){
-        res.status(404).json({message: "No teacher with that ID was found :-("});
-        return;
-      }
-  
-      res.status(200).json(myTeacher);
-  
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
-  
-  //DELETE
-  //Route to delete teacher by id
-  router.delete('/:id', async(req, res) => {
-    try {
-      const teacherData = await Teacher.destroy({
-        where: {
-          id: req.params.id 
-        },
-      });
-  
-      if(!teacherData) {
-        res.status(404).json({ message: 'No teacher found with this id!' });
-        return;
-      }
-      
-      res.status(200).json(teacherData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-    
 module.exports = router;
