@@ -1,46 +1,60 @@
+// import Form model
+const { Form, User } = require('../../models');
 const router = require('express').Router();
-const Goal = require('../../models/Goals');
+
+const {
+  saveForm,
+  deleteForm,
+} = require('../../controllers/form-controller');
+
+// import middleware
+const { authMiddleware } = require('../../utils/auth');
+
+// CHECK ROUTE ENDPOINTS
+// put authMiddleware anywhere we need to send a token for verification of user
+router.route('/').post(saveForm).put(authMiddleware);
+
+router.route('/').delete(deleteForm).put(authMiddleware);
 
 
-// Route to create a new goal
-router.post('/', async (req, res) => {
-    try {
-      const newGoal = await Goal.create({
-        ...req.body,
-        teacher_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newGoal);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+// Old route- Update formEntries array User HARDCODED to corey's email
+router.put('/start', async (req, res) => {
+  const userEmail = "corey@email.com"
+  try {
+   const formData = await Form.create(req.body)
+   const updatedUser = await User.findOneAndUpdate(
+      {email: userEmail}, 
+      {$push: { formEntries: formData }}, 
+      {new: true, runValidators: true})
 
-  // Route to create many student goals
-  router.post('/many', async (req , res)=> {
-    try {
-      const newGoalz = Goal.bulkCreate(req.body, {});
-      res.json(newGoalz)
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  })
+   console.log(updatedUser)
+  //  Add an if statement if you don't find a user's email
+  if (!userEmail) {
+    return res.status(400).json({ message: 'Wrong email!' });
+  }
+  // console.log(formData)
+  } catch (error) {
+    return res.status(400).json(error);
+  }
 
-  // Route to get goal by student id 
+});
+
+  // Route to get form by user email 
   router.get('/', async (req, res) => {
     try {
-      const myGoals = await Goal.findAll({
-        where: {
-          student_id: req.session.user_id,
-        },
+      const myForms = await Goal.find({
+        // REPLACE WITH USER EMAIL TAKEN FROM PROPS
+        // where: {
+        //   student_id: req.session.user_id,
+        // },
       });
   
-      if (!myGoals){
-        res.status(404).json({message: "No goals were found for that student :-("});
+      if (!myForms){
+        res.status(404).json({message: "No forms were found for that user :-("});
         return;
       }
   
-      res.status(200).json(myGoals);
+      res.status(200).json(myForms);
   
     } catch (err) {
       console.log(err);

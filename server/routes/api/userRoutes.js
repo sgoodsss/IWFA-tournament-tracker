@@ -24,22 +24,4 @@ router.get('/', (req, res) => {
   });
 });
 
-// Old route- Log in User HARDCODED to corey's email
-router.put('/start', async (req, res) => {
-  const userEmail = "corey@email.com"
-  try {
-   const formData = await Form.create(req.body)
-   const updatedUser = await User.findOneAndUpdate({email: userEmail}, {$push: { formEntries: formData }}, {new: true, runValidators: true})
-   console.log(updatedUser)
-  //  Add an if statement if you don't find a user's email
-  if (!userEmail) {
-    return res.status(400).json({ message: 'Wrong email!' });
-  }
-  // console.log(formData)
-  } catch (error) {
-    res.json(error)
-  }
-
-});
-
 module.exports = router;
