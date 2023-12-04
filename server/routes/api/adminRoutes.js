@@ -1,3 +1,4 @@
+//API ENDPOINT- api/admin/ 
 // import Admin model
 const { Admin } = require('../../models');
 const router = require('express').Router();

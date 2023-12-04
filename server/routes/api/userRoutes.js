@@ -1,4 +1,5 @@
-// import user model
+//API ENDPOINT- api/users/ 
+//import user model
 const { User } = require('../../models');
 const router = require('express').Router();
 const {

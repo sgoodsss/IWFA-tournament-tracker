@@ -1,3 +1,4 @@
+//API ENDPOINT- api/events/ 
 // import Event model
 const { Event } = require('../../models');
 const router = require('express').Router();
