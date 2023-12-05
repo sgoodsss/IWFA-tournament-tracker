@@ -8,7 +8,7 @@ import Login from './pages/Login'
 import Admin from './pages/Admin'
 import Form from './pages/Form'
 import Signup from './pages/SignUp'
-import userHome from './pages/User'
+import User from './pages/User'
 
 const router = createBrowserRouter([
   {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/user',
-        element: <userHome />
+        element: <User />
       },
     ]
   }

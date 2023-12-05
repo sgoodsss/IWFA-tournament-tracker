@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-function userHome () {
+function User () {
     return (
         <div>
             <h1>User Home</h1>
@@ -16,4 +16,4 @@ function userHome () {
     
 }
 
-export default userHome;
+export default User;
