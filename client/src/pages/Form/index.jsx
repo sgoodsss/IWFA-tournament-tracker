@@ -1,7 +1,10 @@
+import DailyFormEntry from '../../components/DailyFormEntry';
+
 function Form () {
     return (
         <div>
-            <h1>Form</h1>
+            <h1>Daily Fishing Scoresheet</h1>
+            <DailyFormEntry />
         </div>
     )
     
