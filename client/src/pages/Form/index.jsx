@@ -15,6 +15,14 @@ function Form() {
     const [ladyBait, setLadyBait] = useState('');
     const [ladyArt, setLadyArt] = useState('');
     const [ladyFly, setLadyFly] = useState('');
+
+    const [snookBait, setSnookBait] = useState('');
+    const [snookArt, setSnookArt] = useState('');
+    const [snookFly, setSnookFly] = useState('');
+
+    const [rdBait, setRDBait] = useState('');
+    const [rdArt, setRDArt] = useState('');
+    const [rdFly, setRDFly] = useState('');
     const form = useRef();
 
     const handleInputChange = (e) => {
@@ -41,7 +49,19 @@ function Form() {
             setLadyArt(value)
         } else if (name === `ladyFly`) {
             setLadyFly(value)
-        } 
+        } else if (name === `snookBait`) {
+            setSnookBait(value)
+        } else if (name === `snookArt`) {
+            setSnookArt(value)
+        } else if (name === `snookFly`) {
+            setSnookFly(value)
+        } else if (name === `rdBait`) {
+            setRDBait(value)
+        } else if (name === `rdArt`) {
+            setRDArt(value)
+        } else if (name === `rdFly`) {
+            setRDFly(value)
+        }
 
         console.log(name, value)
     };
@@ -64,6 +84,12 @@ function Form() {
         setLadyBait('');
         setLadyArt('');
         setLadyFly(``);
+        setSnookBait('');
+        setSnookArt('');
+        setSnookFly(``);
+        setRDBait('');
+        setRDArt('');
+        setRDFly(``);
     };
 
 
@@ -168,6 +194,66 @@ function Form() {
                             <option value="60">3</option>
                             <option value="80">4</option>
                             <option value="100">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Snook:
+                        <select value={snookBait} name="snookBait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="90">1</option>
+                            <option value="180">2</option>
+                            <option value="270">3</option>
+                            <option value="360">4</option>
+                            <option value="450">5</option>
+                        </select>
+
+                        <select value={snookArt} name="snookArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="115">1</option>
+                            <option value="230">2</option>
+                            <option value="345">3</option>
+                            <option value="460">4</option>
+                            <option value="575">5</option>
+                        </select>
+
+                        <select value={snookFly} name="snookFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="150">1</option>
+                            <option value="300">2</option>
+                            <option value="450">3</option>
+                            <option value="600">4</option>
+                            <option value="750">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Red Drum:
+                        <select value={rdBait} name="rdbait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="70">1</option>
+                            <option value="140">2</option>
+                            <option value="210">3</option>
+                            <option value="280">4</option>
+                            <option value="350">5</option>
+                        </select>
+
+                        <select value={rdArt} name="rdArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="100">1</option>
+                            <option value="200">2</option>
+                            <option value="300">3</option>
+                            <option value="400">4</option>
+                            <option value="500">5</option>
+                        </select>
+
+                        <select value={rdFly} name="rdFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="185">1</option>
+                            <option value="370">2</option>
+                            <option value="555">3</option>
+                            <option value="740">4</option>
+                            <option value="925">5</option>
                         </select>
                     </label> <br />
 
