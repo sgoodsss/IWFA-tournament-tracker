@@ -31,6 +31,14 @@ function Form() {
     const [bonefishBait, setBonefishBait] = useState('');
     const [bonefishArt, setBonefishArt] = useState('');
     const [bonefishFly, setBonefishFly] = useState('');
+
+    const [permitBait, setPermitBait] = useState('');
+    const [permitArt, setPermitArt] = useState('');
+    const [permitFly, setPermitFly] = useState('');
+
+    const [ttBait, setTTBait] = useState('');
+    const [ttArt, setTTArt] = useState('');
+    const [ttFly, setTTFly] = useState('');
     const form = useRef();
 
     const handleInputChange = (e) => {
@@ -81,6 +89,18 @@ function Form() {
             setBonefishArt(value)
         } else if (name === `bonefishFly`) {
             setBonefishFly(value)
+        } else if (name === `permitBait`) {
+            setPermitBait(value)
+        } else if (name === `permitArt`) {
+            setPermitArt(value)
+        } else if (name === `permitFly`) {
+            setPermitFly(value)
+        } else if (name === `ttBait`) {
+            setTTBait(value)
+        } else if (name === `ttArt`) {
+            setTTArt(value)
+        } else if (name === `ttFly`) {
+            setTTFly(value)
         }
 
         console.log(name, value)
@@ -116,6 +136,12 @@ function Form() {
         setBonefishBait('');
         setBonefishArt('');
         setBonefishFly(``);
+        setPermitBait('');
+        setPermitArt('');
+        setPermitFly(``);
+        setTTBait('');
+        setTTArt('');
+        setTTFly(``);
     };
 
 
@@ -340,6 +366,66 @@ function Form() {
                             <option value="750">3</option>
                             <option value="1000">4</option>
                             <option value="1250">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Permit:
+                        <select value={permitBait} name="permitbait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="225">1</option>
+                            <option value="450">2</option>
+                            <option value="675">3</option>
+                            <option value="900">4</option>
+                            <option value="1125">5</option>
+                        </select>
+
+                        <select value={permitArt} name="permitArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="275">1</option>
+                            <option value="550">2</option>
+                            <option value="825">3</option>
+                            <option value="1100">4</option>
+                            <option value="1375">5</option>
+                        </select>
+
+                        <select value={permitFly} name="permitFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="325">1</option>
+                            <option value="650">2</option>
+                            <option value="975">3</option>
+                            <option value="1300">4</option>
+                            <option value="1625">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Tripletail:
+                        <select value={ttBait} name="ttbait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="60">1</option>
+                            <option value="120">2</option>
+                            <option value="180">3</option>
+                            <option value="240">4</option>
+                            <option value="300">5</option>
+                        </select>
+
+                        <select value={ttArt} name="ttArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="90">1</option>
+                            <option value="180">2</option>
+                            <option value="270">3</option>
+                            <option value="360">4</option>
+                            <option value="450">5</option>
+                        </select>
+
+                        <select value={ttFly} name="ttFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="125">1</option>
+                            <option value="250">2</option>
+                            <option value="375">3</option>
+                            <option value="500">4</option>
+                            <option value="625">5</option>
                         </select>
                     </label> <br />
 
