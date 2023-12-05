@@ -438,6 +438,7 @@ function Form() {
                         </select>
                     </label> <br />
 
+                    <label htmlFor="backcountrySlam"> Backcountry Slams: </label>
                     <input
                         value={backcountrySlam}
                         name="backcountrySlam"
@@ -446,6 +447,7 @@ function Form() {
                         placeholder="# of slams"
                     /> <br />
 
+                    <label htmlFor="backcountrySlam"> Flats Slams: </label>
                     <input
                         value={flatsSlam}
                         name="flatsSlam"
