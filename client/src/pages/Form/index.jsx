@@ -39,6 +39,9 @@ function Form() {
     const [ttBait, setTTBait] = useState('');
     const [ttArt, setTTArt] = useState('');
     const [ttFly, setTTFly] = useState('');
+
+    const [backcountrySlam, setBackcountrySlam] = useState('');
+    const [flatsSlam, setFlatsSlam] = useState('');
     const form = useRef();
 
     const handleInputChange = (e) => {
@@ -101,6 +104,10 @@ function Form() {
             setTTArt(value)
         } else if (name === `ttFly`) {
             setTTFly(value)
+        } else if (name === `backcountrySlam`) {
+            setBackcountrySlam(value)
+        } else if (name === `flatsSlam`) {
+            setFlatsSlam(value)
         }
 
         console.log(name, value)
@@ -142,6 +149,8 @@ function Form() {
         setTTBait('');
         setTTArt('');
         setTTFly(``);
+        setBackcountrySlam('');
+        setFlatsSlam('');
     };
 
 
@@ -428,6 +437,22 @@ function Form() {
                             <option value="625">5</option>
                         </select>
                     </label> <br />
+
+                    <input
+                        value={backcountrySlam}
+                        name="backcountrySlam"
+                        onChange={handleInputChange}
+                        type="text"
+                        placeholder="# of slams"
+                    /> <br />
+
+                    <input
+                        value={flatsSlam}
+                        name="flatsSlam"
+                        onChange={handleInputChange}
+                        type="text"
+                        placeholder="# of slams"
+                    /> <br />
 
                     <button type="submit">
                         Submit
