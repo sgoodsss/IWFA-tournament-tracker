@@ -23,6 +23,14 @@ function Form() {
     const [rdBait, setRDBait] = useState('');
     const [rdArt, setRDArt] = useState('');
     const [rdFly, setRDFly] = useState('');
+
+    const [tarponBait, setTarponBait] = useState('');
+    const [tarponArt, setTarponArt] = useState('');
+    const [tarponFly, setTarponFly] = useState('');
+
+    const [bonefishBait, setBonefishBait] = useState('');
+    const [bonefishArt, setBonefishArt] = useState('');
+    const [bonefishFly, setBonefishFly] = useState('');
     const form = useRef();
 
     const handleInputChange = (e) => {
@@ -61,6 +69,18 @@ function Form() {
             setRDArt(value)
         } else if (name === `rdFly`) {
             setRDFly(value)
+        } else if (name === `tarponBait`) {
+            setTarponBait(value)
+        } else if (name === `tarponArt`) {
+            setTarponArt(value)
+        } else if (name === `tarponFly`) {
+            setTarponFly(value)
+        } else if (name === `bonefishBait`) {
+            setBonefishBait(value)
+        } else if (name === `bonefishArt`) {
+            setBonefishArt(value)
+        } else if (name === `bonefishFly`) {
+            setBonefishFly(value)
         }
 
         console.log(name, value)
@@ -90,6 +110,12 @@ function Form() {
         setRDBait('');
         setRDArt('');
         setRDFly(``);
+        setTarponBait('');
+        setTarponArt('');
+        setTarponFly(``);
+        setBonefishBait('');
+        setBonefishArt('');
+        setBonefishFly(``);
     };
 
 
@@ -254,6 +280,66 @@ function Form() {
                             <option value="555">3</option>
                             <option value="740">4</option>
                             <option value="925">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Tarpon 24":
+                        <select value={tarponBait} name="tarponbait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="185">1</option>
+                            <option value="370">2</option>
+                            <option value="555">3</option>
+                            <option value="740">4</option>
+                            <option value="925">5</option>
+                        </select>
+
+                        <select value={tarponArt} name="tarponArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="210">1</option>
+                            <option value="420">2</option>
+                            <option value="630">3</option>
+                            <option value="840">4</option>
+                            <option value="1050">5</option>
+                        </select>
+
+                        <select value={tarponFly} name="tarponFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="250">1</option>
+                            <option value="500">2</option>
+                            <option value="750">3</option>
+                            <option value="1000">4</option>
+                            <option value="1250">5</option>
+                        </select>
+                    </label> <br />
+
+                    <label>
+                        Bonefish:
+                        <select value={bonefishBait} name="bonefishbait" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Bait # of fish: 0</option>
+                            <option value="150">1</option>
+                            <option value="300">2</option>
+                            <option value="450">3</option>
+                            <option value="600">4</option>
+                            <option value="750">5</option>
+                        </select>
+
+                        <select value={bonefishArt} name="bonefishArt" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Art # of Fish: 0</option>
+                            <option value="200">1</option>
+                            <option value="400">2</option>
+                            <option value="600">3</option>
+                            <option value="800">4</option>
+                            <option value="1000">5</option>
+                        </select>
+
+                        <select value={bonefishFly} name="bonefishFly" onChange={handleInputChange} defaultValue={0}>
+                            <option value="0">Fly # of Fish:0</option>
+                            <option value="250">1</option>
+                            <option value="500">2</option>
+                            <option value="750">3</option>
+                            <option value="1000">4</option>
+                            <option value="1250">5</option>
                         </select>
                     </label> <br />
 
