@@ -8,9 +8,10 @@ module.exports = {
   // user comes from `req.user` created in the auth middleware function
   async saveForm({ user, body }, res) {
     console.log(user);
+    console.log(body);
     try {
       // const userEmail = user.email
-      const formData = await Form.create(req.body)
+      const formData = await Form.create(body)
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
         { $push: { formEntries: formData } },

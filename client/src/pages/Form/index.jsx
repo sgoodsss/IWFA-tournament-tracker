@@ -116,10 +116,7 @@ function Form() {
             setBackcountrySlam(value)
         } else if (name === `flatsSlam`) {
             setFlatsSlam(value)
-            setdailyTotal((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
-                + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
-                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt)
-                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait) + (+ttFly) + (+backcountrySlam) + (+flatsSlam))
+            setdailyTotal((parseInt(sstBait)) + (parseInt(sstArt)) + (parseInt(sstFly)) + (parseInt(jcBait)) + (parseInt(jcArt)) + (parseInt(jcFly)) + (parseInt(ladyBait)) + (parseInt(ladyArt)) + (parseInt(ladyFly)) + (parseInt(snookBait)) + (parseInt(snookArt)) + (parseInt(snookFly)) + (parseInt(rdBait)) + (parseInt(rdArt)) + (parseInt(rdFly)) + (parseInt(tarponBait)) + (parseInt(tarponArt)) + (parseInt(tarponFly)) + (parseInt(bonefishBait)) + (parseInt(bonefishArt)) + (parseInt(bonefishFly)) + (parseInt(permitBait)) + (parseInt(permitArt)) + (parseInt(permitFly)) + (parseInt(ttArt)) + (parseInt(ttBait)) + (parsdeInt(ttFly)) + (parseInt(backcountrySlam)) + (parseInt(flatsSlam)))
         }
 
         console.log(name, value)
@@ -128,20 +125,30 @@ function Form() {
     const handleFormSubmit = async (e) => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
+        const formData = {
+            name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
+            ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
+            rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
+            bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly,
+            backcountrySlam: ((+backcountrySlam) * 150), flatsSlam: ((+flatsSlam) * 500), dailyTotal
+        }
 
         try {
-            const response = await saveForm(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
-                ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
-                rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
-                bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, ((+backcountrySlam)*150), ((+flatsSlam)*500), dailyTotal);
-
+            
+            const token = Auth.getToken();
+            const response = await saveForm(formData, token);
+            
             if (!response.ok) {
                 throw new Error('something went wrong!');
             }
 
-            const { token, user } = await response.json();
-            console.log(user);
-            Auth.login(token);
+            // const { token, user } = await response.json();
+            // console.log(user);
+            // Auth.login(token);
+            // console.log(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
+            //         ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
+            //         rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
+            //         bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, ((+backcountrySlam)*150), ((+flatsSlam)*500), dailyTotal)
             console.log("Your form was submitted!")
         } catch (err) {
             console.error(err);

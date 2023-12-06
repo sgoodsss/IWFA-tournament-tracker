@@ -13,7 +13,7 @@ const { authMiddleware } = require('../../utils/auth');
 
 // CHECK ROUTE ENDPOINTS
 // put authMiddleware anywhere we need to send a token for verification of user
-router.route('/').put(saveForm).put(authMiddleware);
+router.route('/').put(authMiddleware, saveForm);
 
 router.route('/').delete(deleteForm).put(authMiddleware);
 
