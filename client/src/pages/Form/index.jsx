@@ -1,6 +1,9 @@
 // import DailyFormEntry from '../../components/DailyFormEntry';
 import { useState, useRef } from 'react';
-import { Button, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
+import { saveForm } from '../../utils/API';
+import Auth from '../../utils/auth';
 
 function Form() {
     // Set state variables
@@ -46,6 +49,8 @@ function Form() {
 
     const [dailyTotal, setdailyTotal] = useState('');
     const form = useRef();
+    // set state for form validation
+    const [validated] = useState(false);
 
     const handleInputChange = (e) => {
         // Getting the value and name of the input which triggered the change
@@ -108,26 +113,39 @@ function Form() {
         } else if (name === `ttFly`) {
             setTTFly(value)
         } else if (name === `backcountrySlam`) {
-            setBackcountrySlam((+value)*150)
+            setBackcountrySlam(value)
         } else if (name === `flatsSlam`) {
-            setFlatsSlam((+value)*500)
+            setFlatsSlam(value)
             setdailyTotal((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
                 + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
-                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt) 
-                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait)+ (+ttFly) + (+backcountrySlam) + (+flatsSlam))
+                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt)
+                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait) + (+ttFly) + (+backcountrySlam) + (+flatsSlam))
         }
-
-
 
         console.log(name, value)
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
 
-        console.log("Your form was submitted!")
-        // Add logic to send to the server
+        try {
+            const response = await saveForm(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
+                ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
+                rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
+                bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, ((+backcountrySlam)*150), ((+flatsSlam)*500), dailyTotal);
+
+            if (!response.ok) {
+                throw new Error('something went wrong!');
+            }
+
+            const { token, user } = await response.json();
+            console.log(user);
+            Auth.login(token);
+            console.log("Your form was submitted!")
+        } catch (err) {
+            console.error(err);
+        }
 
         // Clear the inputs
         setName('');
@@ -468,7 +486,7 @@ function Form() {
                     <Button
                         disabled={!(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
                             ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
-                            rdArt,rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt, 
+                            rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
                             bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, backcountrySlam, flatsSlam)}
                         type="submit"
                         variant='success'>
