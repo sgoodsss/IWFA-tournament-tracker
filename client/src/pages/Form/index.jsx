@@ -8,6 +8,7 @@ import Auth from '../../utils/auth';
 function Form() {
     // Set state variables
     const [name, setName] = useState('');
+    
     const [sstBait, setSSTBait] = useState('');
     const [sstArt, setSSTArt] = useState('');
     const [sstFly, setSSTFly] = useState('');
