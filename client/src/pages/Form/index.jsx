@@ -1,5 +1,6 @@
 // import DailyFormEntry from '../../components/DailyFormEntry';
 import { useState, useRef } from 'react';
+import { Button, Alert } from 'react-bootstrap';
 
 function Form() {
     // Set state variables
@@ -42,6 +43,8 @@ function Form() {
 
     const [backcountrySlam, setBackcountrySlam] = useState('');
     const [flatsSlam, setFlatsSlam] = useState('');
+
+    const [dailyTotal, setdailyTotal] = useState('');
     const form = useRef();
 
     const handleInputChange = (e) => {
@@ -105,10 +108,16 @@ function Form() {
         } else if (name === `ttFly`) {
             setTTFly(value)
         } else if (name === `backcountrySlam`) {
-            setBackcountrySlam(value)
+            setBackcountrySlam((+value)*150)
         } else if (name === `flatsSlam`) {
-            setFlatsSlam(value)
+            setFlatsSlam((+value)*500)
+            setdailyTotal((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
+                + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
+                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt) 
+                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait)+ (+ttFly) + (+backcountrySlam) + (+flatsSlam))
         }
+
+
 
         console.log(name, value)
     };
@@ -290,7 +299,7 @@ function Form() {
 
                     <label>
                         Red Drum:
-                        <select value={rdBait} name="rdbait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={rdBait} name="rdbait" onChange={handleInputChange} >
                             <option value="0">Bait # of fish: 0</option>
                             <option value="70">1</option>
                             <option value="140">2</option>
@@ -456,9 +465,15 @@ function Form() {
                         placeholder="# of slams"
                     /> <br />
 
-                    <button type="submit">
+                    <Button
+                        disabled={!(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
+                            ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
+                            rdArt,rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt, 
+                            bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, backcountrySlam, flatsSlam)}
+                        type="submit"
+                        variant='success'>
                         Submit
-                    </button>
+                    </Button>
                 </form>
             </div>
         </div>
