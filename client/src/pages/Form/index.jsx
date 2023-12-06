@@ -197,7 +197,7 @@ function Form() {
 
                     <label>
                         Spotted Sea Trout:
-                        <select value={sstBait} name="sstBait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={sstBait} name="sstBait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="20">1</option>
                             <option value="40">2</option>
@@ -206,7 +206,7 @@ function Form() {
                             <option value="100">5</option>
                         </select>
 
-                        <select value={sstArt} name="sstArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={sstArt} name="sstArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="25">1</option>
                             <option value="50">2</option>
@@ -215,7 +215,7 @@ function Form() {
                             <option value="125">5</option>
                         </select>
 
-                        <select value={sstFly} name="sstFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={sstFly} name="sstFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="35">1</option>
                             <option value="70">2</option>
@@ -227,7 +227,7 @@ function Form() {
 
                     <label>
                         Jack Crevalle:
-                        <select value={jcBait} name="jcBait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={jcBait} name="jcBait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="15">1</option>
                             <option value="30">2</option>
@@ -236,7 +236,7 @@ function Form() {
                             <option value="75">5</option>
                         </select>
 
-                        <select value={jcArt} name="jcArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={jcArt} name="jcArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="20">1</option>
                             <option value="40">2</option>
@@ -245,7 +245,7 @@ function Form() {
                             <option value="100">5</option>
                         </select>
 
-                        <select value={jcFly} name="jcFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={jcFly} name="jcFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="30">1</option>
                             <option value="60">2</option>
@@ -257,7 +257,7 @@ function Form() {
 
                     <label>
                         Ladyfish:
-                        <select value={ladyBait} name="ladyBait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ladyBait} name="ladyBait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="10">1</option>
                             <option value="20">2</option>
@@ -266,7 +266,7 @@ function Form() {
                             <option value="50">5</option>
                         </select>
 
-                        <select value={ladyArt} name="ladyArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ladyArt} name="ladyArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="15">1</option>
                             <option value="30">2</option>
@@ -275,7 +275,7 @@ function Form() {
                             <option value="75">5</option>
                         </select>
 
-                        <select value={ladyFly} name="ladyFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ladyFly} name="ladyFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="20">1</option>
                             <option value="40">2</option>
@@ -287,7 +287,7 @@ function Form() {
 
                     <label>
                         Snook:
-                        <select value={snookBait} name="snookBait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={snookBait} name="snookBait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="90">1</option>
                             <option value="180">2</option>
@@ -296,7 +296,7 @@ function Form() {
                             <option value="450">5</option>
                         </select>
 
-                        <select value={snookArt} name="snookArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={snookArt} name="snookArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="115">1</option>
                             <option value="230">2</option>
@@ -305,7 +305,7 @@ function Form() {
                             <option value="575">5</option>
                         </select>
 
-                        <select value={snookFly} name="snookFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={snookFly} name="snookFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="150">1</option>
                             <option value="300">2</option>
@@ -326,7 +326,7 @@ function Form() {
                             <option value="350">5</option>
                         </select>
 
-                        <select value={rdArt} name="rdArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={rdArt} name="rdArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="100">1</option>
                             <option value="200">2</option>
@@ -335,7 +335,7 @@ function Form() {
                             <option value="500">5</option>
                         </select>
 
-                        <select value={rdFly} name="rdFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={rdFly} name="rdFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="185">1</option>
                             <option value="370">2</option>
@@ -347,7 +347,7 @@ function Form() {
 
                     <label>
                         Tarpon 24":
-                        <select value={tarponBait} name="tarponbait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={tarponBait} name="tarponbait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="185">1</option>
                             <option value="370">2</option>
@@ -356,7 +356,7 @@ function Form() {
                             <option value="925">5</option>
                         </select>
 
-                        <select value={tarponArt} name="tarponArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={tarponArt} name="tarponArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="210">1</option>
                             <option value="420">2</option>
@@ -365,7 +365,7 @@ function Form() {
                             <option value="1050">5</option>
                         </select>
 
-                        <select value={tarponFly} name="tarponFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={tarponFly} name="tarponFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="250">1</option>
                             <option value="500">2</option>
@@ -377,7 +377,7 @@ function Form() {
 
                     <label>
                         Bonefish:
-                        <select value={bonefishBait} name="bonefishbait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={bonefishBait} name="bonefishbait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="150">1</option>
                             <option value="300">2</option>
@@ -386,7 +386,7 @@ function Form() {
                             <option value="750">5</option>
                         </select>
 
-                        <select value={bonefishArt} name="bonefishArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={bonefishArt} name="bonefishArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="200">1</option>
                             <option value="400">2</option>
@@ -395,7 +395,7 @@ function Form() {
                             <option value="1000">5</option>
                         </select>
 
-                        <select value={bonefishFly} name="bonefishFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={bonefishFly} name="bonefishFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="250">1</option>
                             <option value="500">2</option>
@@ -407,7 +407,7 @@ function Form() {
 
                     <label>
                         Permit:
-                        <select value={permitBait} name="permitbait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={permitBait} name="permitbait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="225">1</option>
                             <option value="450">2</option>
@@ -416,7 +416,7 @@ function Form() {
                             <option value="1125">5</option>
                         </select>
 
-                        <select value={permitArt} name="permitArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={permitArt} name="permitArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="275">1</option>
                             <option value="550">2</option>
@@ -425,7 +425,7 @@ function Form() {
                             <option value="1375">5</option>
                         </select>
 
-                        <select value={permitFly} name="permitFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={permitFly} name="permitFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="325">1</option>
                             <option value="650">2</option>
@@ -437,7 +437,7 @@ function Form() {
 
                     <label>
                         Tripletail:
-                        <select value={ttBait} name="ttbait" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ttBait} name="ttbait" onChange={handleInputChange}>
                             <option value="0">Bait # of fish: 0</option>
                             <option value="60">1</option>
                             <option value="120">2</option>
@@ -446,7 +446,7 @@ function Form() {
                             <option value="300">5</option>
                         </select>
 
-                        <select value={ttArt} name="ttArt" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ttArt} name="ttArt" onChange={handleInputChange}>
                             <option value="0">Art # of Fish: 0</option>
                             <option value="90">1</option>
                             <option value="180">2</option>
@@ -455,7 +455,7 @@ function Form() {
                             <option value="450">5</option>
                         </select>
 
-                        <select value={ttFly} name="ttFly" onChange={handleInputChange} defaultValue={0}>
+                        <select value={ttFly} name="ttFly" onChange={handleInputChange}>
                             <option value="0">Fly # of Fish:0</option>
                             <option value="125">1</option>
                             <option value="250">2</option>
