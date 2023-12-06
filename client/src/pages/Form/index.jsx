@@ -7,7 +7,6 @@ import Auth from '../../utils/auth';
 
 function Form() {
     // Set state variables
-    const [name, setName] = useState('');
     
     const [sstBait, setSSTBait] = useState('');
     const [sstArt, setSSTArt] = useState('');
@@ -57,9 +56,7 @@ function Form() {
         // Getting the value and name of the input which triggered the change
         const { name, value } = e.target;
 
-        if (name === 'name') {
-            setName(value)
-        } else if (name === `sstBait`) {
+        if (name === `sstBait`) {
             setSSTBait(value)
         } else if (name === `sstArt`) {
             setSSTArt(value)
@@ -130,11 +127,14 @@ function Form() {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
         const formData = {
-            name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
+            spottedSeaTrout: ((+sstBait) + (+sstArt) + (+sstFly)), 
+            jcBait, jcArt, jcFly,
             ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
             rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
             bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly,
-            backcountrySlam: ((+backcountrySlam) * 150), flatsSlam: ((+flatsSlam) * 500), dailyTotal
+            backcountrySlam: ((+backcountrySlam) * 150), 
+            flatsSlam: ((+flatsSlam) * 500), 
+            dailyTotal
         }
 
         try {
@@ -152,7 +152,6 @@ function Form() {
         }
 
         // Clear the inputs
-        setName('');
         setSSTBait('');
         setSSTArt('');
         setSSTFly(``);
@@ -191,13 +190,6 @@ function Form() {
             {/* <DailyFormEntry /> */}
             <div className="container text-center">
                 <form ref={form} className="form" onSubmit={handleFormSubmit}>
-                    <input
-                        value={name}
-                        name="name"
-                        onChange={handleInputChange}
-                        type="text"
-                        placeholder="Your name"
-                    /> <br />
 
                     <label>
                         Spotted Sea Trout:
