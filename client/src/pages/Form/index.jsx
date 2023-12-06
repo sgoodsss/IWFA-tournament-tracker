@@ -145,13 +145,6 @@ function Form() {
                 throw new Error('something went wrong!');
             }
 
-            // const { token, user } = await response.json();
-            // console.log(user);
-            // Auth.login(token);
-            // console.log(name, sstBait, sstArt, sstFly, jcBait, jcArt, jcFly,
-            //         ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
-            //         rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
-            //         bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, ((+backcountrySlam)*150), ((+flatsSlam)*500), dailyTotal)
             console.log("Your form was submitted!")
         } catch (err) {
             console.error(err);
