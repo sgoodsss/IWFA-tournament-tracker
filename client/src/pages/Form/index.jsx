@@ -116,7 +116,10 @@ function Form() {
             setBackcountrySlam(value)
         } else if (name === `flatsSlam`) {
             setFlatsSlam(value)
-            setdailyTotal((parseInt(sstBait)) + (parseInt(sstArt)) + (parseInt(sstFly)) + (parseInt(jcBait)) + (parseInt(jcArt)) + (parseInt(jcFly)) + (parseInt(ladyBait)) + (parseInt(ladyArt)) + (parseInt(ladyFly)) + (parseInt(snookBait)) + (parseInt(snookArt)) + (parseInt(snookFly)) + (parseInt(rdBait)) + (parseInt(rdArt)) + (parseInt(rdFly)) + (parseInt(tarponBait)) + (parseInt(tarponArt)) + (parseInt(tarponFly)) + (parseInt(bonefishBait)) + (parseInt(bonefishArt)) + (parseInt(bonefishFly)) + (parseInt(permitBait)) + (parseInt(permitArt)) + (parseInt(permitFly)) + (parseInt(ttArt)) + (parseInt(ttBait)) + (parsdeInt(ttFly)) + (parseInt(backcountrySlam)) + (parseInt(flatsSlam)))
+            setdailyTotal((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
+                + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
+                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt)
+                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait) + (+ttFly) + (+backcountrySlam) + (+flatsSlam))
         }
 
         console.log(name, value)
