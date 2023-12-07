@@ -47,7 +47,6 @@ function Form() {
     const [backcountrySlam, setBackcountrySlam] = useState('');
     const [flatsSlam, setFlatsSlam] = useState('');
 
-    const [dailyTotal, setdailyTotal] = useState('');
     const form = useRef();
     // set state for form validation
     const [validated] = useState(false);
@@ -114,10 +113,6 @@ function Form() {
             setBackcountrySlam(value)
         } else if (name === `flatsSlam`) {
             setFlatsSlam(value)
-            setdailyTotal((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
-                + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
-                + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt)
-                + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait) + (+ttFly) + (+backcountrySlam) + (+flatsSlam))
         }
 
         console.log(name, value)
@@ -128,13 +123,20 @@ function Form() {
         e.preventDefault();
         const formData = {
             spottedSeaTrout: ((+sstBait) + (+sstArt) + (+sstFly)), 
-            jcBait, jcArt, jcFly,
-            ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
-            rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
-            bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly,
-            backcountrySlam: ((+backcountrySlam) * 150), 
+            jackCrevalle: ((+jcBait) + (+jcArt) + (+jcFly)),
+            ladyfish: ((+ladyBait) + (+ladyArt) + (+ladyFly)),
+            snook: ((+snookBait) + (+snookArt) + (+snookFly)),
+            redDrum: ((+rdBait) + (+rdArt) + (+rdFly)),
+            tarpon: ((+tarponBait) + (+tarponArt) + (+tarponFly)),
+            bonefish: ((+bonefishBait) + (+bonefishArt) + (+bonefishFly)),
+            permit: ((+permitBait) + (+permitArt) + (+permitFly)),
+            tripletail: ((+ttArt) + (+ttBait) + (+ttFly)),
+            slam: ((+backcountrySlam) * 150), 
             flatsSlam: ((+flatsSlam) * 500), 
-            dailyTotal
+            dailyTotal: ((+sstBait) + (+sstArt) + (+sstFly) + (+jcBait) + (+jcArt) + (+jcFly)
+            + (+ladyBait) + (+ladyArt) + (+ladyFly) + (+snookBait) + (+snookArt) + (+snookFly) + (+rdBait)
+            + (+rdArt) + (+rdFly) + (+tarponBait) + (+tarponArt) + (+tarponFly) + (+bonefishBait) + (+bonefishArt)
+            + (+bonefishFly) + (+permitBait) + (+permitArt) + (+permitFly) + (+ttArt) + (ttBait) + (+ttFly) + (+backcountrySlam) + (+flatsSlam))
         }
 
         try {

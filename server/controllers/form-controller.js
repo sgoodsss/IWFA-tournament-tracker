@@ -14,7 +14,7 @@ module.exports = {
       const formData = await Form.create(body)
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $push: { formEntries: formData } },
+        { $addToSet: { formEntries: formData } },
         { new: true, runValidators: true }
       );
       // if (!userEmail) {
