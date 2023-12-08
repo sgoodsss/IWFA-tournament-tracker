@@ -1,6 +1,5 @@
 [
     {
-        "name": "Arden Beyer",
         "spottedSeaTrout": 20,
         "jackCrevalle": 15,
         "ladyfish": 10,
@@ -15,7 +14,6 @@
         "dailyTotal": 1325
     },
     {
-        "name": "Madison Cain",
         "spottedSeaTrout": 0,
         "jackCrevalle": 0,
         "ladyfish": 0,

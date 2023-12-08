@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
+const { FormSchema }= require("../models/Form");
 
 // Schema to create User model
 const userSchema = new Schema({
@@ -21,12 +22,7 @@ const userSchema = new Schema({
         minlength: 5,
     },
     // Connect User's Form Submissions to their account
-    formEntries: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Form'
-        }
-    ],
+    formEntries: [FormSchema],
 },
     {
         toJSON: {
@@ -36,18 +32,24 @@ const userSchema = new Schema({
 );
 
 // hash user password
-userSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('password')) {
-        const saltRounds = 10;
-        this.password = await bcrypt.hash(this.password, saltRounds);
-    }
+// userSchema.pre('save', async function (next) {
+//     if (this.isNew || this.isModified('password')) {
+//         const saltRounds = 10;
+//         this.password = await bcrypt.hash(this.password, saltRounds);
+//     }
 
-    next();
-});
+//     next();
+// });
 
+// userSchema.pre("insertMany", async function (next) {
+//     console.log("insertMany was fired")
+
+//     next();
+// })
 // validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
+    // return bcrypt.compare(password, this.password);
+    return password === this.password
 };
 
 // when we query a user, we'll also get another field called `formCount` with the number of saved forms we have

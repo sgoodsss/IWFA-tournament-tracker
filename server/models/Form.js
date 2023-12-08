@@ -13,67 +13,56 @@ const formSchema = new Schema({
     spottedSeaTrout: {
         type: Number,
         default: 0,
-        max: 175,
         required: true
     },
     jackCrevalle: {
         type: Number,
         default: 0,
-        max: 150,
         required: true
     },
     ladyfish: {
         type: Number,
         default: 0,
-        max: 100,
         required: true
     },
     snook: {
         type: Number,
         default: 0,
-        max: 750,
         required: true
     },
     redDrum: {
         type: Number,
         default: 0,
-        max: 600,
         required: true
     },
     tarpon: {
         type: Number,
         default: 0,
-        max: 1250,
         required: true
     },
     bonefish: {
         type: Number,
         default: 0,
-        max: 1250,
         required: true
     },
     permit: {
         type: Number,
         default: 0,
-        max: 1625,
         required: true
     },
     tripletail: {
         type: Number,
         default: 0,
-        max: 625,
         required: true
     },
     slam: {
         type: Number,
         default: 0,
-        max: 750,
         required: true
     },
     flatsSlam: {
         type: Number,
         default: 0,
-        max: 2500,
         required: true
     },
     dailyTotal: {
@@ -96,4 +85,4 @@ const formSchema = new Schema({
 // Initialize our Form model
 const Form = model('Form', formSchema);
 
-module.exports = Form;
+module.exports = { Form, FormSchema: formSchema };

@@ -2,12 +2,14 @@
 import { useState, useRef } from 'react';
 import { Button } from 'react-bootstrap';
 
-import { saveForm } from '../../utils/API';
+import { saveForm, getMe } from '../../utils/API';
 import Auth from '../../utils/auth';
 
 function Form() {
     // Set state variables
-    
+    const myData= getMe();
+    console.log(myData)
+
     const [sstBait, setSSTBait] = useState('');
     const [sstArt, setSSTArt] = useState('');
     const [sstFly, setSSTFly] = useState('');
@@ -142,6 +144,7 @@ function Form() {
         try {
             
             const token = Auth.getToken();
+            console.log(formData)
             const response = await saveForm(formData, token);
             
             if (!response.ok) {

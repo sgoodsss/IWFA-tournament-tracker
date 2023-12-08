@@ -10,16 +10,13 @@ module.exports = {
     console.log(user);
     console.log(body);
     try {
-      // const userEmail = user.email
-      const formData = await Form.create(body)
+      // const formData = await Form.create(body)
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { formEntries: formData } },
+        { $set: { formEntries: body } },
         { new: true, runValidators: true }
       );
-      // if (!userEmail) {
-      //   return res.status(400).json({ message: 'Wrong email!' });
-      // }
+      
       return res.json(updatedUser);
     } catch (err) {
       console.log(err);
