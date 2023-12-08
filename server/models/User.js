@@ -22,7 +22,9 @@ const userSchema = new Schema({
         minlength: 5,
     },
     // Connect User's Form Submissions to their account
-    formEntries: [FormSchema],
+    day1Entry: [FormSchema],
+    day2Entry: [FormSchema],
+    day3Entry: [FormSchema]
 },
     {
         toJSON: {
@@ -53,9 +55,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `formCount` with the number of saved forms we have
-userSchema.virtual('formCount').get(function () {
-    return this.formEntries.length;
-  });
+// userSchema.virtual('formCount').get(function () {
+//     return this.formEntries.length;
+//   });
 
 // Initialize our User model
 const User = model('User', userSchema);

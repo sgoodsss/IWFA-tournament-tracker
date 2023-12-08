@@ -20,7 +20,7 @@ router.route('/user').get(authMiddleware, getSingleUser);
 
 // Old route- GET all Users
 router.get('/', (req, res) => {
-  User.find({}).populate("formEntries").then((userData) => {
+  User.find({}).populate().then((userData) => {
     res.json(userData);
   });
 });

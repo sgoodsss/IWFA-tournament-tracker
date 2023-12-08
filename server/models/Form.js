@@ -4,6 +4,11 @@ const moment = require('moment');
 
 // Schema to create Form model
 const formSchema = new Schema({
+    dailyEntryNumber: {
+        type: Number,
+        default: 0,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now,

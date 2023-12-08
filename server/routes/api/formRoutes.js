@@ -17,12 +17,11 @@ router.route('/').put(authMiddleware, saveForm);
 
 router.route('/').delete(deleteForm).put(authMiddleware);
 
-
 // Old route- Update formEntries array User HARDCODED to corey's email
-router.put('/start', async (req, res) => {
-  const userEmail = "corey@email.com"
+router.put('/start', async ({ user, body }, res) => {
+  const userEmail = user.email
   try {
-   const formData = await Form.create(req.body)
+   const formData = await Form.create(body)
    const updatedUser = await User.findOneAndUpdate(
       {email: userEmail}, 
       {$push: { formEntries: formData }}, 

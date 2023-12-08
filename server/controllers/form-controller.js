@@ -9,14 +9,34 @@ module.exports = {
   async saveForm({ user, body }, res) {
     console.log(user);
     console.log(body);
+    // console.log(user.dailyEntryNumber)
     try {
+    //   if (dailyEntryNumber === `1`) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //         { _id: user._id },
+    //         { $set: { day1Entry: body } },
+    //         { new: true, runValidators: true }
+    //       );
+    //   } else if (dailyEntryNumber === `2`) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: user._id },
+    //       { $set: { day2Entry: body } },
+    //       { new: true, runValidators: true }
+    //     );
+    //   } else if (dailyEntryNumber === `3`) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: user._id },
+    //       { $set: { day3Entry: body } },
+    //       { new: true, runValidators: true }
+    //     );
+    //   }
       // const formData = await Form.create(body)
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $set: { formEntries: body } },
-        { new: true, runValidators: true }
-      );
-      
+      // const updatedUser = await User.findOneAndUpdate(
+      //   { _id: user._id },
+      //   { $set: { formEntries: body } },
+      //   { new: true, runValidators: true }
+      // );
+
       return res.json(updatedUser);
     } catch (err) {
       console.log(err);

@@ -43,5 +43,6 @@ module.exports = {
     }
     const token = signToken(user);
     res.json({ token, user });
+    // return <User userData={user}/>
   },
 };
