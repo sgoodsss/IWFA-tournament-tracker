@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+
+.background-image {
+    background-image: url('../../assets/background-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h1{
+  padding: .75%;
+  font-size: 100px;
+  text-align: center;
+}
+
+h2 {
+    padding: .75%;
+    font-size: 75px;
+    text-align: center;
+}
+
+#btn {
+    height: 10%;
+    width: 25%;
+    margin: 3%;
+    padding: 2%;
+    justify-content: center;
+}
+
+#footer {
+    position : absolute;
+    bottom : 0;
+    font-size: 10px;
+    background-color: #E3DED1;
+}
+
+/* Media Query for Tablet */
+@media screen and (max-width: 1030px){
+    h1 { 
+      font-size: 70px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 25px;
+    }  
+  }
+  
+  /* Media Query for SmartPhones */
+  @media screen and (max-width: 480px){
+      h1 { 
+          font-size: 50px;
+      }
+      h2 {
+          font-size: 25px;
+      }
+      h3 {
+          font-size: 20px;
+      }  
+  }
