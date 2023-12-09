@@ -27,14 +27,14 @@ const AppNavbar = () => {
               {/* if user is logged in show saved Daily Scoresheet and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/user'>
+                  <Nav.Link className="navLink" as={Link} to='/user'>
                     Daily Scoresheet
                   </Nav.Link>
 
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link className="navLink" onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link className="navLink" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
