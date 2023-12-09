@@ -1,20 +1,34 @@
 /* 
 Colors:
 Pearl #E3DED1
+Lightest Blue #F5FBFB
+Teal #D9E2DE 
+Sand #F0E9DF
+Dark Blue #507882
+#EDD7C8
+Light Blue #E1EFF0
+
+Fonts:
+Default: font-family: 'Advent Pro', sans-serif;
+Headings: font-family: 'Julius Sans One', sans-serif;
+Fish Species in Form: font-family: 'Staatliches', sans-serif;
+Footer/credits: font-family: 'Zeyada', cursive;
 */
 
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Advent Pro', sans-serif;
 }
 
 .navbar-brand {
     padding: 1.5%;
     margin: 1%;
     font-size: xx-large;
-
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 .navLink {
     font-size: large;
+    font-family: 'Julius Sans One', sans-serif;
 }
