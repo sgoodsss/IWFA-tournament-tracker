@@ -12,13 +12,14 @@ label {
     display: block;
     text-align: left;
     padding: 2%;
-  }
+}
 
 button {
-    height: 10%;
     width: 25%;
-    margin: 3%;
-    padding: 2%;
-    align-content: center;
+    justify-content: center;
     font-family: 'Julius Sans One', sans-serif;
+    font-size: x-large;
+    padding: 10%;
+    margin: 10%;
+    margin-left: 38%;
 }
