@@ -1,0 +1,24 @@
+input {
+    padding: 3px;
+    box-shadow: 3px 3px 5px grey;
+    font-size: large;
+    width: 300px;
+    margin: 1%;
+}
+
+label {
+    font-weight: bold;
+    font-size: x-large;
+    display: block;
+    text-align: left;
+    padding: 2%;
+  }
+
+button {
+    height: 10%;
+    width: 25%;
+    margin: 3%;
+    padding: 2%;
+    align-content: center;
+    font-family: 'Julius Sans One', sans-serif;
+}

@@ -13,17 +13,21 @@ function Home() {
                     What would you like to do?
                 </h2>
 
-                <Button id="btn">
-                    <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
-                        Login
-                    </Link>
-                </Button>
+                <div class="container">
+                    <div class="center">
+                        <Button className="btnz">
+                            <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
+                                Login
+                            </Link>
+                        </Button>
 
-                <Button id="btn" className='btn1'>
-                    <Link to={"/signup"} style={{ "textDecoration": "none", "color": "white" }}>
-                        Sign Up
-                    </Link>
-                </Button>
+                        <Button className='btnz'>
+                            <Link to={"/signup"} style={{ "textDecoration": "none", "color": "white" }}>
+                                Sign Up
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
 
                 <footer id="footer">
                     Photo by <a href="https://unsplash.com/@hiro0718?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Hiroko Yoshii</a> on <a href="https://unsplash.com/photos/school-of-fish-in-body-of-water-9y7y26C-l4Y?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
