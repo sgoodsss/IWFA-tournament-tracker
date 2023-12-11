@@ -152,8 +152,11 @@ function Form() {
     const handleFormSubmit = async (e) => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
+        const dailyTotal= ((+sstBait) + (+sstArt) + (+sstFly))+ ((+jcBait) + (+jcArt) + (+jcFly)) + ((+ladyBait) + (+ladyArt) + (+ladyFly)) + ((+snookBait) + (+snookArt) + (+snookFly))
+                            + ((+rdBait) + (+rdArt) + (+rdFly)) + ((+tarponBait) + (+tarponArt) + (+tarponFly)) + ((+bonefishBait) + (+bonefishArt) + (+bonefishFly)) + ((+permitBait) + (+permitArt) + (+permitFly))
+                            + ((+ttArt) + (+ttBait) + (+ttFly)) + ((backcountrySlam) * 150) + ((flatsSlam) * 500)
+
         const formData = {
-            dailyEntryNumber: (entryNum),
             spottedSeaTrout: ((+sstBait) + (+sstArt) + (+sstFly)),
             jackCrevalle: ((+jcBait) + (+jcArt) + (+jcFly)),
             ladyfish: ((+ladyBait) + (+ladyArt) + (+ladyFly)),
@@ -163,12 +166,9 @@ function Form() {
             bonefish: ((+bonefishBait) + (+bonefishArt) + (+bonefishFly)),
             permit: ((+permitBait) + (+permitArt) + (+permitFly)),
             tripletail: ((+ttArt) + (+ttBait) + (+ttFly)),
-            slam: ((+backcountrySlam) * 150),
-            flatsSlam: ((+flatsSlam) * 500),
-            dailyTotal: (((+sstBait) + (+sstArt) + (+sstFly)) + ((+jcBait) + (+jcArt) + (+jcFly))
-                + ((+ladyBait) + (+ladyArt) + (+ladyFly)) + ((+snookBait) + (+snookArt) + (+snookFly)) + ((+rdBait)
-                    + (+rdArt) + (+rdFly)) + ((+tarponBait) + (+tarponArt) + (+tarponFly)) + ((+bonefishBait) + (+bonefishArt)
-                        + (+bonefishFly)) + ((+permitBait) + (+permitArt) + (+permitFly)) + ((+ttArt) + (ttBait) + (+ttFly)) + (+backcountrySlam) + (+flatsSlam))
+            slam: ((backcountrySlam) * 150),
+            flatsSlam: ((flatsSlam) * 500),
+            dailyTotal
         }
 
         try {
