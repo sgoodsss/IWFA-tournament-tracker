@@ -13,8 +13,8 @@ function Home() {
                     What would you like to do?
                 </h2>
 
-                <div class="container">
-                    <div class="center">
+                <div className="container">
+                    <div className="center">
                         <Button className="btnz">
                             <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
                                 Login

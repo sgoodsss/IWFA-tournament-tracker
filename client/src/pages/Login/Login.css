@@ -1,8 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+
+.background-image {
+    background-image: url('../../assets/sebastian-pena-lambarri-YV593oyMKmo-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 input {
     padding: 3px;
     box-shadow: 3px 3px 5px grey;
     font-size: large;
-    width: 300px;
+    width: 75%;
     margin: 1%;
 }
 

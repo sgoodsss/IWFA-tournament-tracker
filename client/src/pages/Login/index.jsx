@@ -1,14 +1,17 @@
 import LoginForm from '../../components/LoginForm';
 import "./Login.css"
 
-function Login () {
+function Login() {
     return (
-        <div>
-            <h1>Login</h1>
-            <LoginForm />
+        <div className='background-image'>
+            <div>
+                <h1>Login</h1>
+                <LoginForm />
+            </div>
         </div>
+
     )
-    
+
 }
 
 export default Login;
