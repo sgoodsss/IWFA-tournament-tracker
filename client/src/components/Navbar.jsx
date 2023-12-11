@@ -13,68 +13,64 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='light' variant='light' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            IWFA Tournament Tracker
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
-            <Nav className='ml-auto d-flex'>
-              {/* <Nav.Link as={Link} to='/'>
-                Admin
-              </Nav.Link> */}
-              {/* if user is logged in show saved Daily Scoresheet and logout */}
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link className="navLink" as={Link} to='/user'>
-                    Daily Scoresheet
-                  </Nav.Link>
-
-                  <Nav.Link className="navLink" onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link className="navLink" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      
-      {/* set modal data up */}
-      <Modal
-        size='lg'
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login'>
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
-                <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-              <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
+      <nav className='nav'>
+        <a href="/" className='site-title'>IWFA Tournament Tracker</a>
+        <ul>
+        {Auth.loggedIn() ? (
+          <>
+            <li>
+              <a href="/user">My Scores</a>
+            </li>
+            <li>
+              <a onClick={Auth.logout}>Logout</a>
+            </li>
+          </>
+        ) : (
+          <>
+          </>
+        )}
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/signup">Sign Up</a>
+        </li>
+      </ul>
+      </nav>
     </>
   );
 };
 
 export default AppNavbar;
+
+//  <Navbar bg='light' expand="lg" className="bg-body-tertiary">
+{/* <Container>
+<Navbar.Brand className="navBrand" as={Link} to='/'> IWFA Tournament Tracker </Navbar.Brand>
+<Navbar.Toggle aria-controls="basic-navbar-nav" />
+<Navbar.Collapse id="basic-navbar-nav">
+  <Nav className="me-auto">
+  {Auth.loggedIn() ? (
+      <>
+        <Nav.Link className="navLink" as={Link} to='/user'>
+          My Scoresheet
+        </Nav.Link>
+
+        <Nav.Link className="navLink" onClick={Auth.logout}>
+          Logout
+        </Nav.Link>
+      </>
+    ) : (
+      <>
+        <Nav.Link className="navLink" as={Link} to='/login'>
+          Login
+        </Nav.Link>
+
+        <Nav.Link className="navLink" as={Link} to='/signup'>
+          Sign Up
+        </Nav.Link>
+      </>
+    )}   
+  </Nav>
+</Navbar.Collapse>
+</Container>
+</Navbar> */}

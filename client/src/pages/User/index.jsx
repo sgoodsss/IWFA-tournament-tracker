@@ -3,9 +3,17 @@ import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { getMe } from '../../utils/API';
 import Auth from '../../utils/auth';
+import Background from '../../assets/sebastian-pena-lambarri-YV593oyMKmo-unsplash.jpg';
 
 function User() {
  // Set state variables
+ const style = {
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+    backgroundImage: `url(${Background})`
+  };
+
  const [userData, setUserData] = useState('')
  useEffect(() => {
      const getUserData = async () => {
@@ -33,7 +41,7 @@ function User() {
  });
     // console.log(userData.day1Entry)
     return (
-        <div>
+        <div style= {style}>
             <h1>User Home</h1>
             <h2>View Previous Scoresheets</h2>
 

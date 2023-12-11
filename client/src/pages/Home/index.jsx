@@ -1,12 +1,19 @@
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import "./Home.css"
+import Background from '../../assets/257E7716-FAAB-4D55-8748-0126478EAE60_1_201_a.jpeg';
 
 function Home() {
+    const style = {
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+        backgroundImage: `url(${Background})`
+      };
 
     return (
         <div>
-            <div className='background-image'>
+            <div style= {style}>
                 <h1>Welcome Anglers!</h1>
                 <h2>
                     {" "}
