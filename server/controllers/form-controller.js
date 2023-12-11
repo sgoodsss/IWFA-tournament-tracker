@@ -1,5 +1,5 @@
 // import Form model
-const { Form, User } = require('../models');
+const { User } = require('../models');
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 
@@ -9,35 +9,38 @@ module.exports = {
   async saveForm({ user, body }, res) {
     console.log(user);
     console.log(body);
-    // console.log(user.dailyEntryNumber)
+    const dailyEntryNumber= body.dailyEntryNumber
     try {
-    //   if (dailyEntryNumber === `1`) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //         { _id: user._id },
-    //         { $set: { day1Entry: body } },
-    //         { new: true, runValidators: true }
-    //       );
-    //   } else if (dailyEntryNumber === `2`) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: user._id },
-    //       { $set: { day2Entry: body } },
-    //       { new: true, runValidators: true }
-    //     );
-    //   } else if (dailyEntryNumber === `3`) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: user._id },
-    //       { $set: { day3Entry: body } },
-    //       { new: true, runValidators: true }
-    //     );
-    //   }
-      // const formData = await Form.create(body)
+      if (dailyEntryNumber === `1`) {
+        const updatedUser = await User.findOneAndUpdate(
+            { _id: user._id },
+            { $set: { day1Entry: body } },
+            { new: true, runValidators: true }
+          );
+          console.log(updatedUser)
+      } else if (dailyEntryNumber === `2`) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $set: { day2Entry: body } },
+          { new: true, runValidators: true }
+        );
+        console.log(updatedUser)
+      } else if (dailyEntryNumber === `3`) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $set: { day3Entry: body } },
+          { new: true, runValidators: true }
+        );
+        console.log(updatedUser)
+      }
+      
       // const updatedUser = await User.findOneAndUpdate(
       //   { _id: user._id },
       //   { $set: { formEntries: body } },
       //   { new: true, runValidators: true }
       // );
 
-      return res.json(updatedUser);
+      return res.json({msg: "test"});
     } catch (err) {
       console.log(err);
       return res.status(400).json(err);

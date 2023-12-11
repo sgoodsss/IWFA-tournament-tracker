@@ -12,33 +12,9 @@ function User() {
     }, [])
 
     return (
-        <div className='w-100 vh-100 d-flex justify-content-center align-items-center'>
+        <div>
             <h1>User Home</h1>
             <h2>View Previous Scoresheets</h2>
-            <div className='w-50'>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            users.map(user => {
-                                return <tr>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                </tr>
-                            })
-                        }
-                    </tbody>
-                </table>
-            </div>
 
             <Button>
                 <Link to={"/form"} style={{ "textDecoration": "none", "color": "white" }}>

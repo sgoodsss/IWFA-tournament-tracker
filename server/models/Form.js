@@ -1,13 +1,12 @@
-const { Schema, model, Types } = require("mongoose");
+const { Schema, Types } = require("mongoose");
 // Require Moment.js to format dates and times
 const moment = require('moment');
 
 // Schema to create Form model
 const formSchema = new Schema({
-    dailyEntryNumber: {
-        type: Number,
-        default: 0,
-        required: true
+    formId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId()
     },
     createdAt: {
         type: Date,
@@ -87,7 +86,5 @@ const formSchema = new Schema({
 
 );
 
-// Initialize our Form model
-const Form = model('Form', formSchema);
 
-module.exports = { Form, FormSchema: formSchema };
+module.exports = formSchema;

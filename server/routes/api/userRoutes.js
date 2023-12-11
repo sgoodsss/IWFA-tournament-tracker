@@ -16,7 +16,7 @@ router.route('/').post(createUser).put(authMiddleware);
 
 router.route('/login').post(login);
 
-router.route('/user').get(authMiddleware, getSingleUser);
+router.route('/me').get(authMiddleware, getSingleUser);
 
 // Old route- GET all Users
 router.get('/', (req, res) => {

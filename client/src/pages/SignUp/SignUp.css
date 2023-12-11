@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+
+.background-image {
+    background-image: url('../../assets/chris-caines-xLXbLITAdCY-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+input {
+    padding: 3px;
+    box-shadow: 3px 3px 5px grey;
+    font-size: large;
+    width: 75%;
+    margin: 1%;
+}
+
+label {
+    font-weight: bold;
+    font-size: x-large;
+    display: block;
+    text-align: left;
+    padding: 2%;
+}
+
+button {
+    width: 25%;
+    justify-content: center;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: x-large;
+    padding: 10%;
+    margin: 10%;
+    margin-left: 38%;
+}

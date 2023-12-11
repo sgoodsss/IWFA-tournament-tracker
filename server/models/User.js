@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 // const bcrypt = require('bcrypt');
-const { FormSchema }= require("../models/Form");
+const formSchema= require("../models/Form");
 
 // Schema to create User model
 const userSchema = new Schema({
@@ -22,9 +22,9 @@ const userSchema = new Schema({
         minlength: 5,
     },
     // Connect User's Form Submissions to their account
-    day1Entry: [FormSchema],
-    day2Entry: [FormSchema],
-    day3Entry: [FormSchema]
+    day1Entry: [formSchema],
+    day2Entry: [formSchema],
+    day3Entry: [formSchema]
 },
     {
         toJSON: {
