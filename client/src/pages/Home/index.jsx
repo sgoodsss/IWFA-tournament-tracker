@@ -9,27 +9,28 @@ function Home() {
         backgroundRepeat: "no-repeat",
         height: "100vh",
         backgroundImage: `url(${Background})`
-      };
+    };
 
     return (
         <div>
-            <div style= {style}>
+            <div style={style}>
                 <h1>Welcome Anglers!</h1>
                 <h2>
                     What would you like to do?
                 </h2>
-
+                <div  className="btnBox">
                 <Button className="btnz">
-                            <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
-                                Login
-                            </Link>
-                        </Button>
+                    <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
+                        Login
+                    </Link>
+                </Button>
 
-                        <Button className='btnz'>
-                            <Link to={"/signup"} style={{ "textDecoration": "none", "color": "white" }}>
-                                Sign Up
-                            </Link>
-                        </Button>
+                <Button className='btnz'>
+                    <Link to={"/signup"} style={{ "textDecoration": "none", "color": "white" }}>
+                        Sign Up
+                    </Link>
+                </Button>
+                </div>
 
                 <footer id="footer">
                     Photo by <a href="https://unsplash.com/@hiro0718?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Hiroko Yoshii</a> on <a href="https://unsplash.com/photos/school-of-fish-in-body-of-water-9y7y26C-l4Y?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
