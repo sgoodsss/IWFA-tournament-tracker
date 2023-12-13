@@ -1,7 +1,7 @@
 // see SignupForm.js for comments
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-// import  { Redirect } from 'react-router-dom'
+import  { Redirect } from 'react-router-dom'
 
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -36,7 +36,7 @@ const LoginForm = () => {
       const { token, user } = await response.json();
       console.log(user);
       Auth.login(token);
-      // return <Redirect to='/user'/>
+      return <Redirect to='/user'/>
       // this.props.history.push("/user")
     } catch (err) {
       console.error(err);
@@ -82,11 +82,13 @@ const LoginForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type='submit'>
           Submit
         </Button>
+        
       </Form>
     </>
   );

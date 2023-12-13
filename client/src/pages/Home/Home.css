@@ -27,16 +27,11 @@ h2 {
 }
 
 .btnz {
-    width: 100%;
-    /* margin: 25%; */
-    float: left;
+    width: 100% auto;
+    height: 10%;
     justify-content: center;
     font-family: 'Julius Sans One', sans-serif;
     font-size: x-large;
-    padding-bottom: 10%;
-    padding-top: 10%;
-    margin-top: 20%;
-    margin-bottom: 20%;
 }
 
 #footer {
@@ -45,20 +40,4 @@ h2 {
     font-size: 10px;
     background-color: #E3DED1;
     font-family: 'Zeyada', cursive;
-}
-
-.container {
-    padding: 2%;
-    height: 40%;
-    width: 60%;
-    position: relative;
-}
-  
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }

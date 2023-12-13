@@ -16,13 +16,10 @@ function Home() {
             <div style= {style}>
                 <h1>Welcome Anglers!</h1>
                 <h2>
-                    {" "}
                     What would you like to do?
                 </h2>
 
-                <div className="container">
-                    <div className="center">
-                        <Button className="btnz">
+                <Button className="btnz">
                             <Link to={"/login"} style={{ "textDecoration": "none", "color": "white" }}>
                                 Login
                             </Link>
@@ -33,8 +30,6 @@ function Home() {
                                 Sign Up
                             </Link>
                         </Button>
-                    </div>
-                </div>
 
                 <footer id="footer">
                     Photo by <a href="https://unsplash.com/@hiro0718?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Hiroko Yoshii</a> on <a href="https://unsplash.com/photos/school-of-fish-in-body-of-water-9y7y26C-l4Y?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
