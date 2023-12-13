@@ -6,66 +6,122 @@ import Auth from '../../utils/auth';
 import Background from '../../assets/sebastian-pena-lambarri-YV593oyMKmo-unsplash.jpg';
 
 function User() {
- // Set state variables
- const style = {
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: "100vh",
-    backgroundImage: `url(${Background})`
-  };
+    // Set state variables
+    const style = {
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+        backgroundImage: `url(${Background})`
+    };
 
- const [userData, setUserData] = useState('')
- useEffect(() => {
-     const getUserData = async () => {
-         try {
-             const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const [userData, setUserData] = useState('')
+    const [day1, setDay1] = useState([{}])
+    const [day2, setDay2] = useState([{}])
+    const [day3, setDay3] = useState([{}])
 
-             if (!token) {
-                 return false;
-             }
+    useEffect(() => {
+        const getUserData = async () => {
+            try {
+                const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-             const response = await getMe(token);
+                if (!token) {
+                    return false;
+                }
 
-             if (!response.ok) {
-                 throw new Error('something went wrong!');
-             }
+                const response = await getMe(token);
 
-             const user = await response.json();
-             setUserData(user);
-         } catch (err) {
-             console.error(err);
-         }
-     };
+                if (!response.ok) {
+                    throw new Error('something went wrong!');
+                }
 
-     getUserData();
- });
-    // console.log(userData.day1Entry)
+                const user = await response.json();
+
+                setDay1(user.day1Entry);
+                setDay2(user.day2Entry);
+                setDay3(user.day3Entry);
+                console.log(day2)
+                setUserData(user);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        getUserData();
+    });
+
     return (
-        <div style= {style}>
+        <div style={style}>
             <h1>User Home</h1>
             <h2>View Previous Scoresheets</h2>
+            <div style={{ display: "flex", border: "1px solid white", justifyContent: "space-between" }}>
+                
+                <div>
+                    <h4>Day 1 Scores</h4>
+                    {day1.map(
+                        currentDay => (
+                            <div>
+                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                <h5>Snook: {currentDay.snook} </h5>
+                                <h5>Red Drum: {currentDay.redDrum} </h5>
+                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                <h5>Bonefish: {currentDay.bonefish} </h5>
+                                <h5>Permit: {currentDay.permit} </h5>
+                                <h5>Tripletail: {currentDay.tripletail} </h5>
+                                <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                            </div>
+                        )
+                    )}
+                </div>
 
-            {/* <div>
-                <h3>Day 1</h3>
-                {userData.day1Entry.map(
-                    day1 => (<h4>{day1.dailyTotal}</h4>)
-                )}
+                <div>
+                    <h4>Day 2 Scores</h4>
+                    {day2.map(
+                        currentDay => (
+                            <div>
+                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                <h5>Snook: {currentDay.snook} </h5>
+                                <h5>Red Drum: {currentDay.redDrum} </h5>
+                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                <h5>Bonefish: {currentDay.bonefish} </h5>
+                                <h5>Permit: {currentDay.permit} </h5>
+                                <h5>Tripletail: {currentDay.tripletail} </h5>
+                                <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                            </div>
+                        )
+                    )}
+                </div>
+
+                <div>
+                    <h4>Day 3 Scores</h4>
+                    {day3.map(
+                        currentDay => (
+                            <div>
+
+                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                <h5>Snook: {currentDay.snook} </h5>
+                                <h5>Red Drum: {currentDay.redDrum} </h5>
+                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                <h5>Bonefish: {currentDay.bonefish} </h5>
+                                <h5>Permit: {currentDay.permit} </h5>
+                                <h5>Tripletail: {currentDay.tripletail} </h5>
+                                <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                            </div>
+                        )
+                    )}
+                </div>
             </div>
-
-            <div>
-                <h3>Day 2</h3>
-                {userData.day2Entry.map(
-                    day2 => (<h4>{day2.dailyTotal}</h4>)
-                )}
-            </div>
-
-            <div>
-                <h3>Day 3</h3>
-                {userData.day3Entry.map(
-                    day3 => (<h4>{day3.dailyTotal}</h4>)
-                )}
-            </div> */}
-
             <Button>
                 <Link to={"/form"} style={{ "textDecoration": "none", "color": "white" }}>
                     Fill out Daily Scoresheet
