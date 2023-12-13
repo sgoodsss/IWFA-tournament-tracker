@@ -18,11 +18,4 @@ router.route('/login').post(login);
 
 router.route('/me').get(authMiddleware, getSingleUser);
 
-// Old route- GET all Users
-router.get('/', (req, res) => {
-  User.find({}).populate().then((userData) => {
-    res.json(userData);
-  });
-});
-
 module.exports = router;
