@@ -1,15 +1,14 @@
-// import DailyFormEntry from '../../components/DailyFormEntry';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 
 import { saveForm, getMe } from '../../utils/API';
 import Auth from '../../utils/auth';
+import Background from '../../assets/jean-wimmerlin-ePvBOHsAA54-unsplash.jpg';
 
 function Form() {
     // Set state variables
     const [userData, setUserData] = useState('')
-    // const myData = await getMe();
-    // console.log(myData)
+
     useEffect(() => {
         const getUserData = async () => {
             try {
@@ -79,6 +78,12 @@ function Form() {
     const form = useRef();
     // set state for form validation
     const [validated] = useState(false);
+
+    const style = {
+        backgroundColor: "cover",
+        // height: "100vh",
+        backgroundImage: `url(${Background})`
+      };
 
     const handleInputChange = (e) => {
         // Getting the value and name of the input which triggered the change
@@ -220,7 +225,7 @@ function Form() {
 
 
     return (
-        <div>
+        <div style= {style}>
             <h1>Daily Fishing Scoresheet</h1>
             <div className="container text-center">
                 <form ref={form} className="form" onSubmit={handleFormSubmit}>
@@ -527,8 +532,7 @@ function Form() {
                             ladyBait, ladyArt, ladyFly, snookBait, snookArt, snookFly, rdBait,
                             rdArt, rdFly, tarponBait, tarponArt, tarponFly, bonefishBait, bonefishArt,
                             bonefishFly, permitBait, permitArt, permitFly, ttArt, ttBait, ttFly, backcountrySlam, flatsSlam)}
-                        type="submit"
-                        variant='success'>
+                        type="submit">
                         Submit
                     </Button>
                 </form>
