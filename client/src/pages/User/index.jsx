@@ -53,11 +53,11 @@ function User() {
     return (
         <div style={style}>
             <h1>User Home</h1>
-            <h2>View Previous Scoresheets</h2>
-            <div style={{ display: "flex", border: "1px solid white", justifyContent: "space-between" }}>
+            <h2>Previous Scoresheets</h2>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
 
                 <div>
-                    <h4>Day 1 Scores</h4>
+                    <h4 style={{color: "white", fontSize: "xx-large" }}>Day 1 Scores</h4>
                     {day1.map(
                         currentDay => (
                             <div>
@@ -85,7 +85,7 @@ function User() {
                 </div>
 
                 <div>
-                    <h4>Day 2 Scores</h4>
+                    <h4 style={{color: "white", fontSize: "xx-large" }}>Day 2 Scores</h4>
                     {day2.map(
                         currentDay => (
                             <div>
@@ -113,7 +113,7 @@ function User() {
                 </div>
 
                 <div>
-                    <h4>Day 3 Scores</h4>
+                    <h4 style={{color: "white", fontSize: "xx-large" }}>Day 3 Scores</h4>
                     {day3.map(
                         currentDay => (
                             <div>
