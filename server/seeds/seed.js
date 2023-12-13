@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { Admin, Form, User, Event } = require('../models');
+const {User} = require('../models');
 
 const userData = require('./userData.json');
 
