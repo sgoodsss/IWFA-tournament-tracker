@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { getMe } from '../../utils/API';
 import Auth from '../../utils/auth';
@@ -54,24 +55,30 @@ function User() {
             <h1>User Home</h1>
             <h2>View Previous Scoresheets</h2>
             <div style={{ display: "flex", border: "1px solid white", justifyContent: "space-between" }}>
-                
+
                 <div>
                     <h4>Day 1 Scores</h4>
                     {day1.map(
                         currentDay => (
                             <div>
-                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
-                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
-                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
-                                <h5>Snook: {currentDay.snook} </h5>
-                                <h5>Red Drum: {currentDay.redDrum} </h5>
-                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
-                                <h5>Bonefish: {currentDay.bonefish} </h5>
-                                <h5>Permit: {currentDay.permit} </h5>
-                                <h5>Tripletail: {currentDay.tripletail} </h5>
-                                <h5>Backcountry Slam: {currentDay.slam} </h5>
-                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
-                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Body>
+                                        <Card.Text>
+                                            <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                            <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                            <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                            <h5>Snook: {currentDay.snook} </h5>
+                                            <h5>Red Drum: {currentDay.redDrum} </h5>
+                                            <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                            <h5>Bonefish: {currentDay.bonefish} </h5>
+                                            <h5>Permit: {currentDay.permit} </h5>
+                                            <h5>Tripletail: {currentDay.tripletail} </h5>
+                                            <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                            <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                            <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
                             </div>
                         )
                     )}
@@ -82,18 +89,24 @@ function User() {
                     {day2.map(
                         currentDay => (
                             <div>
-                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
-                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
-                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
-                                <h5>Snook: {currentDay.snook} </h5>
-                                <h5>Red Drum: {currentDay.redDrum} </h5>
-                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
-                                <h5>Bonefish: {currentDay.bonefish} </h5>
-                                <h5>Permit: {currentDay.permit} </h5>
-                                <h5>Tripletail: {currentDay.tripletail} </h5>
-                                <h5>Backcountry Slam: {currentDay.slam} </h5>
-                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
-                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Body>
+                                        <Card.Text>
+                                            <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                            <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                            <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                            <h5>Snook: {currentDay.snook} </h5>
+                                            <h5>Red Drum: {currentDay.redDrum} </h5>
+                                            <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                            <h5>Bonefish: {currentDay.bonefish} </h5>
+                                            <h5>Permit: {currentDay.permit} </h5>
+                                            <h5>Tripletail: {currentDay.tripletail} </h5>
+                                            <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                            <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                            <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
                             </div>
                         )
                     )}
@@ -104,19 +117,24 @@ function User() {
                     {day3.map(
                         currentDay => (
                             <div>
-
-                                <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
-                                <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
-                                <h5>Ladyfish: {currentDay.ladyfish} </h5>
-                                <h5>Snook: {currentDay.snook} </h5>
-                                <h5>Red Drum: {currentDay.redDrum} </h5>
-                                <h5>Tarpon 24": {currentDay.tarpon} </h5>
-                                <h5>Bonefish: {currentDay.bonefish} </h5>
-                                <h5>Permit: {currentDay.permit} </h5>
-                                <h5>Tripletail: {currentDay.tripletail} </h5>
-                                <h5>Backcountry Slam: {currentDay.slam} </h5>
-                                <h5>Flats Slam: {currentDay.flatsSlam} </h5>
-                                <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Body>
+                                        <Card.Text>
+                                            <h5>Spotted Sea Trout: {currentDay.spottedSeaTrout} </h5>
+                                            <h5>Jack Crevalle: {currentDay.jackCrevalle} </h5>
+                                            <h5>Ladyfish: {currentDay.ladyfish} </h5>
+                                            <h5>Snook: {currentDay.snook} </h5>
+                                            <h5>Red Drum: {currentDay.redDrum} </h5>
+                                            <h5>Tarpon 24": {currentDay.tarpon} </h5>
+                                            <h5>Bonefish: {currentDay.bonefish} </h5>
+                                            <h5>Permit: {currentDay.permit} </h5>
+                                            <h5>Tripletail: {currentDay.tripletail} </h5>
+                                            <h5>Backcountry Slam: {currentDay.slam} </h5>
+                                            <h5>Flats Slam: {currentDay.flatsSlam} </h5>
+                                            <h5>Daily Points Total: {currentDay.dailyTotal} </h5>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
                             </div>
                         )
                     )}
