@@ -1,7 +1,6 @@
 // see SignupForm.js for comments
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import  { Redirect } from 'react-router-dom'
 
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -88,7 +87,7 @@ const LoginForm = () => {
           type='submit'>
           Submit
         </Button>
-        
+
       </Form>
     </>
   );
