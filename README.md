@@ -17,8 +17,11 @@
 
   ## Usage
   Open this <a href="https://iwfa-tournament-tracker-b7067b46fbe3.herokuapp.com/">this link</a>  in your favorite browser to get started! Upon launch you will have the option to login or sign up.
+
+  ![Image of website landing page](client/src/assets/landingPage.png)
   
   Upon logging in, navigate to the homepage to access various features. Previous scoresheets are displayed on the user homepage. For entering scores for a new tournament day, locate the option to "Fill Out New Scoresheet" on the user homepage. Input your catch details for the current day's tournament, then save the scoresheet.  The scoresheet will now be displayed on your homepage!
+  ![Image of user dashboard page](client/src/assets/userHomeImg.png)
 
   ## Credits
   I worked with my tutor, Corey Yates, and all the TAs in my bootcamp cohort.
