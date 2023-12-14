@@ -52,7 +52,7 @@ function User() {
         <div style={style}>
             <h1 style={{color: 'white'}}>User Home</h1>
             <h2 style={{color: 'white'}}>Previous Scoresheets</h2>
-            <div style={{ display: "flex", justifyContent: "space-between", maxWidth: "90%" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", maxWidth: "90%", margin: "auto" }}>
 
                 <div>
                     <h4 style={{color: "white", fontSize: "xx-large" }}>Day 1 Scores</h4>
