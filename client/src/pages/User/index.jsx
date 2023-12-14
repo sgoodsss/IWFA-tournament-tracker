@@ -10,8 +10,6 @@ function User() {
     // Set state variables
     const style = {
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
         backgroundImage: `url(${Background})`
     };
 
@@ -52,9 +50,9 @@ function User() {
 
     return (
         <div style={style}>
-            <h1>User Home</h1>
-            <h2>Previous Scoresheets</h2>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <h1 style={{color: 'white'}}>User Home</h1>
+            <h2 style={{color: 'white'}}>Previous Scoresheets</h2>
+            <div style={{ display: "flex", justifyContent: "space-between", maxWidth: "90%" }}>
 
                 <div>
                     <h4 style={{color: "white", fontSize: "xx-large" }}>Day 1 Scores</h4>

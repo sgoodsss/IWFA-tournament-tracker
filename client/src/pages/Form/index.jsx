@@ -81,7 +81,6 @@ function Form() {
 
     const style = {
         backgroundColor: "cover",
-        // height: "100vh",
         backgroundImage: `url(${Background})`
       };
 
