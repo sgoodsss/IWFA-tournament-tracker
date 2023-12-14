@@ -7,7 +7,9 @@ function Signup() {
         <div className='background-image'>
             <div>
                 <h1>Sign Up</h1>
-                <SignUpForm />
+                <div className="signUpBox">
+                    <SignUpForm />
+                </div>
             </div>
         </div>
     )

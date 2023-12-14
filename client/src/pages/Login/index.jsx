@@ -6,7 +6,9 @@ function Login() {
         <div className='background-image'>
             <div>
                 <h1>Login</h1>
-                <LoginForm />
+                <div className="loginBox">
+                    <LoginForm />
+                </div>
             </div>
         </div>
 
