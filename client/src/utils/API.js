@@ -1,6 +1,6 @@
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
-  return fetch('http://localhost:3000/api/users/me', {
+  return fetch('/api/users/me', {
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
@@ -9,7 +9,7 @@ export const getMe = (token) => {
 };
 
 export const createUser = (userData) => {
-  return fetch('http://localhost:3000/api/users', {
+  return fetch('/api/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export const createUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch('http://localhost:3000/api/users/login', {
+  return fetch('/api/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const loginUser = (userData) => {
 
 // save form data for a logged in user
 export const saveForm = (formData, token) => {
-  return fetch('http://localhost:3000/api/forms', {
+  return fetch('/api/forms', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
