@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getMe } from '../../utils/API';
 import Auth from '../../utils/auth';
 import Background from '../../assets/sebastian-pena-lambarri-YV593oyMKmo-unsplash.jpg';
+import "./User.css"
 
 function User() {
     // Set state variables
@@ -52,9 +53,9 @@ function User() {
         <div style={style}>
             <h1 style={{color: 'white'}}>User Home</h1>
             <h2 style={{color: 'white'}}>Previous Scoresheets</h2>
-            <div style={{ display: "flex", justifyContent: "space-between", maxWidth: "90%", margin: "auto" }}>
+            <div className="cardContainer">
 
-                <div>
+                <div className='column'>
                     <h4 style={{color: "white", fontSize: "xx-large" }}>Day 1 Scores</h4>
                     {day1.map(
                         currentDay => (
@@ -82,7 +83,7 @@ function User() {
                     )}
                 </div>
 
-                <div>
+                <div className='column'>
                     <h4 style={{color: "white", fontSize: "xx-large" }}>Day 2 Scores</h4>
                     {day2.map(
                         currentDay => (
@@ -110,7 +111,7 @@ function User() {
                     )}
                 </div>
 
-                <div>
+                <div className='column'>
                     <h4 style={{color: "white", fontSize: "xx-large" }}>Day 3 Scores</h4>
                     {day3.map(
                         currentDay => (
