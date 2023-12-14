@@ -39,7 +39,6 @@ function User() {
                 setDay1(user.day1Entry);
                 setDay2(user.day2Entry);
                 setDay3(user.day3Entry);
-                console.log(day2)
                 setUserData(user);
             } catch (err) {
                 console.error(err);
